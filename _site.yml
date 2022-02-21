@@ -4,4 +4,10 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+    - text: "Slides"
+      icon: fa-chart-area
+      menu: 
+        - text: "GitHub"
+          icon: fa-file
+          href: slides-github.html      
 output_dir: docs

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Git and GitHub</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kelly McConville" />
+    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+background-image: url("img/octocat.001.jpeg")
+background-position: left
+background-size: 50%
+class: middle, center, inverse
+
+
+.pull-right[
+
+
+
+# .white[GitHub]
+
+&lt;br&gt;
+
+&lt;br&gt;
+
+### .white[Kelly McConville]
+
+#### .babyblue[Stat 98 | Week 5 | Spring 2022] 
+
+]
+
+---
+
+# Goals for Today
+
+* Discuss git and GitHub.
+
+* Go over the GitHub + RStudio workflow.
+    + For solo projects
+    + For group projects
+
+* Workshop simulation ideas.
+
+
+
+---
+
+background-image: url("img/octocat.001.jpeg")
+background-position: left
+background-size: 50%
+
+.pull-right[
+
+## git and GitHub
+
+* **git**: Version control system
+    + Think fancier type of *Track Changes*.
+
+* **GitHub**: Hosting service for git projects (which are called repositories)
+    + Think fancier type of *DropBox*.
+
+* Useful resource when getting started: [https://happygitwithr.com/](https://happygitwithr.com/)
+
+]
+
+
+    
+---
+
+## Git Real
+
+* Git is a *decentralized* version control system.
+    + Each collaborator has a complete version of the repo.
+    + Everyone can work offline and simultaneously.
+    + GitHub holds the master copy.
+
+* git is not friendly and can be frustrating.
+      + BUT, the version control and collaborative rewards are big!
+      
+* [GitHub.com](GitHub.com) is a great place to develop an online presence.
+    + In Stat 98, we will default to keeping the work private.
+
+* If you end up with a mess of errors, then don't worry but come see one of the instructors for help.
+    + It happens to [everyone](https://xkcd.com/1597/).
+
+
+---
+
+## Github Repo = `RStudio` Project
+
+* A **repo**, short for repository, is the folder that contains all of the files for the project on [GitHub.com](GitHub.com).
+ 
+* Under the **harvard-stat98** GitHub Organization you currently have 2 repos:
+    + `username`: Just you (and instructors)
+    + `sim-study-grpXXX`: You and your Assignment 2 partner
+
+* For each repo, you should create an `RStudio` Project (with version control).
+    + We will all do this together in a moment.
+    
+
+
+---
+
+## Steps to Get Started
+
+
+**Once-Per-Computer:**
+
+* Install git on your computer.
+
+* Get your local git talking to GitHub.
+
+**Once-Per-Project:**
+
+* Create a repo on GitHub. 
+    + I did this step for us.
+
+* Create a version controlled RStudio Project that is synced with the GitHub repo.
+
+---
+
+## Now:
+
+
+* Sign-in to GitHub.com.
+
+* Open a session in your local RStudio.
+
+* Let's **git** our RStudio synced with our GitHub account and then make a change to our personal repo!
+    + Make sure you accepted the repo request sent to your email.
+
+
+
+---
+
+## Check if git is install 
+
+In **Terminal**, type
+
+
+```r
+which git
+```
+
+
+
+```r
+git --version
+```
+
+* If you receive an answer, then git is already install! 🎉
+
+* If the reply is `git: command not found` (or similar), then
+    + Windows: Visit [https://gitforwindows.org/](https://gitforwindows.org/)
+    + Macs: In the Terminal type
+
+
+```r
+xcode-select --install    
+```
+
+* If you had to install git, restart your RStudio Session.
+
+---
+
+## Introduce Yourself to Git 
+
+* Install the package `usethis`.
+
+* In your R console, modify and run the following code to introduce yourself to git
+
+
+```r
+library(usethis)
+use_git_config(user.name = "mcconvil", 
+               user.email = "kmcconville@fas.harvard.edu")
+```
+
+
+
+---
+
+## Personal Access Token Time
+
+* Each time you interact with GitHub, you need to include credentials.
+    + Personal Access Token (PAT)
+
+* In your R console, run
+
+
+```r
+usethis::create_github_token()
+```
+
+* Should take you to GitHub.  
+
+* Select "repo", "user", and "workflow" for the scopes.
+
+* Click "Generate token".
+
+* Copy the PAT to your clipboard and store it by running:
+
+
+```r
+gitcreds::gitcreds_set()
+```
+
+* Also store it somewhere safe!
+
+---
+
+## Sync GitHub.com repo and an RStudio Project
+
+**In your repo on GitHub.com**:
+
+* Click on the green clone or download button.
+* Copy the given url for "Clone with HTTPS".
+
+**In RStudio**:
+
+* In the upper left, go to File &gt; New Project &gt; Version Control.
+* Select Git.
+* Paste in the url.  It should automatically give it a name. Select where you want the project to live in your home directory. Then click okay.
+
+
+
+
+
+
+---
+
+## Workflow
+
+Once your GitHub repo and RStudio project are synced, here's your workflow:
+
+* **Pull** the most recent version of the repo from GitHub to your RStudio project.
+
+* Do some work on your project in RStudio.
+
+* **Commit** that work.
+    + Committing takes a snapshot of all the files in the project.
+    + Look over the **Diff**: which shows what has changed since your last update.
+    + Include a quick note, **Commit Message** to summarize the motivation for the changes.
+
+
+* **Push** your commit to GitHub from RStudio.    
+
+---
+
+class: middle, center, inverse
+
+## Workflow Demo
+
+
+
+---
+
+
+## Ignoring Files
+
+* There are several files that we want to **NOT** push to GitHub.
+
+* These include:
+    + `.gitignore`
+    + `.DS_Store`
+
+* Add these files to the `.gitignore`.    
+
+
+---
+
+## Test the waters: Let's go through the workflow.
+
+* Pull. (Yes, there is nothing to pull yet but it is always good practice to start here.)
+* Click on the ReadMe.
+* Add something to the ReadMe.
+* Click on the git tab.  Check the box next to the ReadMe.md. Hit commit.
+* Put in a commit message.  Look over the diff.  
+* Push.
+
+
+**Look for updates in the ReadMe on GitHub.com.**
+
+
+---
+
+## Git Collaboration: Merge conflicts
+
+* What if my partners and I both make changes? 
+    + Scenario: Your partner makes changes to a file, commits, and pushes to GitHub. You also modify that file, commit and push.  
+    + Result: Your push will fail because there's a commit on GitHub that you don't have.  
+    + Usual Solution: Pull and *usually* git will merge their work nicely with yours.  Then push.  If that doesn't work, you have a **merge conflict**.  Let's cross that bridge when we get there.  
+    
+* How to avoid merge conflicts?
+    + Always pull when you are going to work on your project.
+    + Always commit and push when you are done even if you made small changes.
+
+
+---
+
+## Collaboration: Git Style
+
+* **Projects**: Can use to create to do lists and stay organized.
+
+* **Issues**: Useful method to communicate with your group members.
+
+---
+
+class: inverse, middle, center
+
+## Now we will walk around the room and help folks who had trouble with any of these steps.
+
+### If you didn't have any issues, look through the items in your group repo.
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
