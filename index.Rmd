@@ -1,0 +1,8 @@
+---
+title: "Course Materials"
+---
+
+This website and corresponding GitHub repository serve two purposes:
+
+* To share slide decks on specific Stat 98 topics.
+* To provide examples of presentations made with `xaringan`.

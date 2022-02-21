@@ -1,0 +1,7 @@
+name: "stat98"
+navbar:
+  title: "Stat 98 Materials"
+  left:
+    - text: "Home"
+      href: index.html
+output_dir: docs
