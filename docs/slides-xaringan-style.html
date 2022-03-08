@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Git and GitHub</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kelly McConville" />
+    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
+    <script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="site_libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+    <script src="site_libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+    <script src="site_libs/leaflet-providers-plugin-2.0.4.1/leaflet-providers-plugin.js"></script>
+    <link href="site_libs/leaflet-minimap-3.3.1/Control.MiniMap.min.css" rel="stylesheet" />
+    <script src="site_libs/leaflet-minimap-3.3.1/Control.MiniMap.min.js"></script>
+    <script src="site_libs/leaflet-minimap-3.3.1/Minimap-binding.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+name: xaringan-title
+class: center, middle
+background-image: url(img/jelleke-vanooteghem-gc3sGgo3q1I-unsplash.jpg)
+background-size: cover
+
+
+
+# .white[Creating Slides with `xaringan`]
+
+# .white[And]
+
+# .white[Developing a Coding Style]
+
+&lt;br&gt;
+
+&lt;br&gt;
+
+### .white[Kelly McConville]
+
+#### .babyblue[Stat 98 | Week 7 | Spring 2022] 
+
+---
+
+name: tools
+class: center, middle
+
+# What tools do you currently use to create presentation slides?
+
+---
+class: center
+
+## Slide Building Tools
+
+&lt;img src="img/sandbox_images_001.jpeg" width="600px"/&gt;
+
+---
+class: center
+
+## Slide Building Tools
+
+&lt;img src="img/sandbox_images_002.jpeg" width="600px"/&gt;
+
+---
+class: center
+
+## Slide Building Tools
+
+&lt;img src="img/sandbox_images_003.jpeg" width="600px"/&gt;
+
+---
+class: center
+
+## Slide Building Tools
+
+&lt;img src="img/sandbox_images_004.jpeg" width="600px"/&gt;
+
+--
+
+
+
+**Bottom Line:** Learn multiple tools.
+
+
+---
+
+## Why Learn `xaringan`?
+
+
+
+`xaringan` is good to use if:
+
+--
+
++ You want HTML slides.
+
+
+
+---
+
+## Why Learn `xaringan`?
+
+
+`xaringan` is good to use if:
+
+
++ Have a lot of embedded R work.
+
+
+```r
+library(pdxTrees)
+library(tidyverse)
+
+# Isabelle's histogram of the inventory date 
+count(get_pdxTrees_parks(), Inventory_Date) %&gt;%  
+  ggplot(aes(x = Inventory_Date)) +   
+  geom_histogram() 
+```
+
+
+&lt;img src="slides-xaringan-style_files/figure-html/unnamed-chunk-2-1.png" width="360" /&gt;
+
+
+---
+
+## Why Learn `xaringan`?
+
+
+`xaringan` is good to use if:
+
+
++ You want to embed an interactive map or application:
+
+
+
+<div id="htmlwidget-925e91f80138639207f4" style="width:432px;height:324px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-925e91f80138639207f4">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"setView":[[45.4726,-122.6239],17,[]],"calls":[{"method":"addProviderTiles","args":["Esri.WorldTopoMap",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addMarkers","args":[[45.4731968295256,45.4727987430744,45.4735123852356,45.4728400981934,45.4731865220242,45.4727894973465,45.4729324746914,45.4728344235423,45.4735465948457,45.4732795359655,45.4729355014038,45.4733470092717,45.4735123063681,45.4728665017719,45.4729426639195,45.4735119523662,45.4725490484124,45.4736153715278,45.4728027487443,45.4728735690867,45.4730931187738,45.4734886020767,45.4736209351382,45.4726534542465,45.4727995274937,45.4728854812275,45.472780531145,45.4732235228419,45.4728752432328,45.4727766776983,45.4728008053961,45.4736147395964,45.4735342057002,45.4729966023813,45.4736015716217,45.473110465086,45.4736179814849,45.4731907677129,45.4728003712787,45.4728055147084,45.4732333663852,45.4734204798034,45.4727859299309,45.4736569903657,45.4730858084136,45.4728699146906,45.4733455543969,45.4734467016291,45.4736172561317,45.4736055404124,45.4734528125527,45.4727990671914,45.4730039081963,45.4735530062534,45.4735741397941,45.472768463029,45.473572666789,45.4734891220274,45.4727986322851,45.4734058798807,45.4729418869266,45.472777541489,45.4736044083932,45.4727612383603,45.4733749221844,45.4736017568374,45.4728356502015,45.4728631016433,45.4734798942162,45.4727633883237,45.472739369385,45.4735736815987,45.4727862843472,45.4736044082345,45.473496085515,45.4727256909994,45.4727966345299,45.4727654449556,45.472718716895,45.4736090479982,45.47347726757,45.4727635344711,45.4732537183414,45.4726761568785,45.4726462168299,45.4735713622424,45.4727699432225,45.4728318412136,45.4736066869237,45.4726366571748,45.4736123076777,45.4732466302526,45.4733001654413,45.4726325320654,45.473353360894,45.4734484656204,45.472618774186,45.4728938887673,45.4731604652615,45.4726139979042,45.4730653083221,45.4726078368454,45.4728026132958,45.4726047008312,45.472970870291,45.4731075155143,45.4729322093693,45.4727886627309,45.4728889917461,45.4728795662136,45.4729270114807,45.4729018143337,45.4729285472752,45.4728961140501,45.4733646400651,45.4732091170435],[-122.62526054836,-122.62340508377,-122.625452586264,-122.624323946717,-122.624484147655,-122.625267265922,-122.622901473805,-122.624566537117,-122.625386398126,-122.624500323062,-122.624189836197,-122.624420948908,-122.625562448269,-122.624593022501,-122.624121190039,-122.625315999822,-122.622828688675,-122.625578804459,-122.625351030126,-122.624077264809,-122.624540862296,-122.624474217678,-122.625141158873,-122.622824646192,-122.62419969967,-122.625411880393,-122.622826890572,-122.624805063975,-122.622828057766,-122.62542935755,-122.624067386901,-122.624498963816,-122.625140519179,-122.622830009254,-122.624294684218,-122.62283668193,-122.625665126102,-122.625041296698,-122.623878962108,-122.625568859758,-122.622842078933,-122.625105791907,-122.625620354994,-122.62411239121,-122.625029957709,-122.623825658905,-122.62284380814,-122.625206623292,-122.625739109639,-122.624068702741,-122.622849076298,-122.623697356016,-122.625033358744,-122.622852157614,-122.625067636032,-122.62573671065,-122.62396998995,-122.625729156731,-122.62353434398,-122.62497995657,-122.624905794708,-122.625826961504,-122.623905105768,-122.623561149797,-122.625694706119,-122.623818139174,-122.625820819074,-122.625053851745,-122.624983101606,-122.625861042452,-122.623553742419,-122.623748385118,-122.625893867373,-122.623657438206,-122.6248495396,-122.623586816827,-122.625015965232,-122.625915011635,-122.623579405654,-122.623539748865,-122.624759724556,-122.625970105418,-122.625711977486,-122.623575365236,-122.623581162876,-122.623355157256,-122.626056547444,-122.624881451334,-122.624681411335,-122.623580678993,-122.623226797885,-122.62528063858,-122.625556394301,-122.623582658884,-122.625295972114,-122.624632671183,-122.62358051611,-122.624964460817,-122.625643044886,-122.623580666437,-122.625641252474,-122.623579472826,-122.62481798378,-122.623579661417,-122.625680703038,-122.624892818389,-122.62573550856,-122.624557188314,-122.626013878181,-122.625818274361,-122.625904895497,-122.625868540252,-122.625830416058,-122.625615241549,-122.624539712063,-122.624258463619],{"iconUrl":{"data":"https://openclipart.org/download/7973/carlitos-Leaf.svg","index":0},"iconWidth":10,"iconHeight":20,"iconAnchorX":10,"iconAnchorY":10,"shadowWidth":10,"shadowHeight":15,"shadowAnchorX":5,"shadowAnchorY":5},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Northern Red Oak <\/b><\/br> Factoid:  Acorns take two years to mature and are an important food source for wildlife.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Green Ash <\/b><\/br> Factoid:  Opposite branching tree with compound leaves 9\" long with 5 to 9 leaflets 3 1/2\" long.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Norway Spruce <\/b><\/br> Factoid:  Needles are prickly, four sided, and emerge from a woody bump on the stem.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: American Elm <\/b><\/br> Factoid:  Doubly serrate margins on leaves 3\" to 6\" long. Yellow fall color.","<\/b> Common Name: Japanese Flowering Cherry <\/b><\/br> Factoid:  Remarkable pink spring blossoms.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Japanese Flowering Cherry <\/b><\/br> Factoid:  Remarkable pink spring blossoms.","<\/b> Common Name: American Elm <\/b><\/br> Factoid:  Doubly serrate margins on leaves 3\" to 6\" long. Yellow fall color.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Ash <\/b><\/br> Factoid:  Deciduous trees with compound leaves. Flowers are white or cream in clusters. Seeds are borne on single-winged keys on female trees.","<\/b> Common Name: Colorado Blue Spruce <\/b><\/br> Factoid:  Needles are blueish-green. A popular Christmas tree.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: European Ash <\/b><\/br> Factoid:  NA","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Green Ash <\/b><\/br> Factoid:  Opposite branching tree with compound leaves 9\" long with 5 to 9 leaflets 3 1/2\" long.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Japanese Flowering Cherry <\/b><\/br> Factoid:  Remarkable pink spring blossoms.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: American Elm <\/b><\/br> Factoid:  Doubly serrate margins on leaves 3\" to 6\" long. Yellow fall color.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Japanese Flowering Cherry <\/b><\/br> Factoid:  Remarkable pink spring blossoms.","<\/b> Common Name: Western Redcedar <\/b><\/br> Factoid:  The bark is dark brown, papery, and peels off easily in small strips.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Northern Red Oak <\/b><\/br> Factoid:  Acorns take two years to mature and are an important food source for wildlife.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Siberian Elm <\/b><\/br> Factoid:  Resistant to Dutch elm disease, and cross bred with other elm species to produce resistant hybrid trees.","<\/b> Common Name: Norway Maple <\/b><\/br> Factoid:  Most common street tree in Portland. Pull a leaf off and milky white sap emits from the leaf stem. Yellow catkin flowers in spring before leaves.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Norway Maple <\/b><\/br> Factoid:  Most common street tree in Portland. Pull a leaf off and milky white sap emits from the leaf stem. Yellow catkin flowers in spring before leaves.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Willow Oak <\/b><\/br> Factoid:  Narrow, lanceolate leaves superficially resemble a willow’s but are thicker and more leathery. Acorns are bright yellow-brown and a half-inch long.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Green Ash <\/b><\/br> Factoid:  Opposite branching tree with compound leaves 9\" long with 5 to 9 leaflets 3 1/2\" long.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Harlequin Glory Bower <\/b><\/br> Factoid:  Fragrant, star-shaped white flowers in August, magenta calyces and turquois pea-shaped fruits.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Pin Oak <\/b><\/br> Factoid:  Pin oak gets its name from the sharp pointy shoots that are apparent in winter.","<\/b> Common Name: Red-Silver Maple Hybrid <\/b><\/br> Factoid:  Leaves can be intermediate between red and silver.","<\/b> Common Name: Douglas-Fir <\/b><\/br> Factoid:  Bracts on cones look like a mouse's feet and tail.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Saucer Magnolia <\/b><\/br> Factoid:  Obovate to oblong leaves turn yellow or light brown in fall. Showy goblet shaped pink or white flowers in early spring.","<\/b> Common Name: Bigleaf Maple <\/b><\/br> Factoid:  Name comes from the large five-lobed leaves, much larger than any other maple species.","<\/b> Common Name: Flowering Plum <\/b><\/br> Factoid:  Earliest of the flowering trees in spring.","<\/b> Common Name: Paperbark Cherry, Birchbark Cherry, Tibetan Cherry <\/b><\/br> Factoid:  Glossy, smooth red-brown to purplish-red peeling bark with prominent horizontal white lenticels."],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addMiniMap","args":[null,null,"bottomright",150,150,19,19,-5,false,false,false,false,false,false,{"color":"#ff7800","weight":1,"clickable":false},{"color":"#000000","weight":1,"clickable":false,"opacity":0,"fillOpacity":0},{"hideText":"Hide MiniMap","showText":"Show MiniMap"},[]]}],"limits":{"lat":[45.4725490484124,45.4736569903657],"lng":[-122.626056547444,-122.622824646192]}},"evals":[],"jsHooks":[]}</script>
+
+
+
+---
+
+## Why Learn `xaringan`?
+
+
+`xaringan` is good to use if:
+
+
++ Want to ensure you are using a reproducible workflow.
+    
+
+---
+
+## `xaringan` Demystified
+
+ Slides edited in an R Markdown document. 
+
+--
+
+
+Knits to HTML.
+
+--
+
+**If you have worked with an R Markdown document before, you can create `xaringan` slides!**
+
+---
+
+## How do I create slides?
+
+.pull-left[
+
+- First slides starts where the YAML (header stuff) ends
+
+- `---` = New Slide
+
+
+
+]
+
+.pull-right[
+
+```
+---
+output: xaringan::moon_reader 
+---
+
+# Header on Slide 1
+
+Some stuff
+
+---
+
+# Header for Slide 2 
+
+More stuff
+
+```
+]
+
+---
+
+## `xaringan` Demystified
+
+
+* Let's grab some template slides: 
+    + File &gt; New File &gt; R Markdown ... 
+
+&lt;img src="img/template.png" width="400px" style="display: block; margin: auto;" /&gt;
+
+---
+
+## `xaringan` Tips!
+
+--
+    
+* Press ? to see shortcuts.
+
+--
+
+* Use `--` for incremental builds.  (.bright-orange[Warning:] It is fussy!) 
+
+
+
+---
+
+## `xaringan` Tips!
+
+
+.pull-left[
+
+
+*  To create two columns, use `.pull-left[ ]` and `.pull-right[ ]`
+
+
+
+]
+
+.pull-right[
+
+```
+---
+
+## `xaringan` Tips!
+
+
+.pull-left[
+
+Stuff
+
+
+]
+
+.pull-right[
+
+Other stuff
+
+]
+```
+
+]
+
+---
+
+## `xaringan` Tips!
+
+The default resolution for figures is not high enough.
+
+- Chunk option: `fig.retina = 1`
+
+
+
+```r
+# Isabelle's histogram of the inventory date 
+count(get_pdxTrees_parks(), Inventory_Date) %&gt;%  
+  ggplot(aes(x = Inventory_Date)) +   
+  geom_histogram() 
+```
+
+![](slides-xaringan-style_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+
+---
+
+## `xaringan` Tips!
+
+The default resolution for figures is not high enough.
+
+- Chunk option: `fig.retina = 3`
+
+
+
+```r
+# Isabelle's histogram of the inventory date 
+count(get_pdxTrees_parks(), Inventory_Date) %&gt;%  
+  ggplot(aes(x = Inventory_Date)) +   
+  geom_histogram() 
+```
+
+&lt;img src="slides-xaringan-style_files/figure-html/unnamed-chunk-5-1.png" width="360" /&gt;
+
+---
+
+## `xaringan` Tips!
+
+You can highlight code with `{{}}`
+
+
+
+```r
+# Isabelle's histogram of the inventory date 
+count(get_pdxTrees_parks(), Inventory_Date) %&gt;%  
+  ggplot(aes(x = Inventory_Date)) +   
+*  geom_histogram() 
+```
+
+&lt;img src="slides-xaringan-style_files/figure-html/unnamed-chunk-6-1.png" width="360" /&gt;
+
+
+---
+
+## References
+
+* To add in citations:
+
+
+```r
+library(RefManageR)
+BibOptions(
+  check.entries = FALSE, 
+  bib.style = "authoryear", 
+  cite.style = "authoryear", 
+  style = "markdown",
+  hyperlink = FALSE, 
+  dashed = FALSE)
+bibfile &lt;- ReadBib("xaringan.bib")
+```
+
+* For inline citations:
+  + Using `Citet()`: Xie (2020)
+  + Using `Citep()`: (Xie, 2020)
+  + Using `NoCite()`: 
+
+
+
+
+---
+
+## Bibiliography
+
+
+```r
+PrintBibliography(bibfile)
+```
+
+Hill, A., H. Zhu, Y. Xie, et al. (2019). _Advanced R Markdown
+Workshop_. &lt;URL:
+https://github.com/rstudio-education/arm-workshop-rsc2019&gt;.
+
+R Core Team (2019). _R: A Language and Environment for Statistical
+Computing_. R Foundation for Statistical Computing. Vienna, Austria.
+URL: [https://www.R-project.org/](https://www.R-project.org/).
+
+Tarr, G. and E. Tanaka (2019). _Sydney xaringan_. &lt;URL:
+https://github.com/garthtarr/sydney_xaringan&gt;.
+
+Xie, Y. (2020). _xaringan: Presentation Ninja_. R package version 0.14.
+URL:
+[https://CRAN.R-project.org/package=xaringan](https://CRAN.R-project.org/package=xaringan).
+
+
+
+---
+
+## General Slide Creation Tips
+
+--
+
+* Creating good slides does take .bright-orange[effort] and should include .bright-orange[revisions].
+
+--
+
+* Use a 🖼 or 📊 over text whenever possible.
+
+--
+
+* Know your audience.
+
+--
+
+.pull-left[
+
+$$
+`\begin{aligned}
+\boldsymbol{\hat{\beta}}_s = &amp; \underset{\boldsymbol{\beta}}{\arg\min}  \left\{ \sum_{i \in s} \frac{(y_i - \boldsymbol{x}_i^T \boldsymbol{\beta})^2}{ \sigma^2_i} \right.\\
+&amp; \left. + \lambda \left[ \alpha \sum_{j=1}^p \left|\beta_j\right| + (1-\alpha) \sum_{j=1}^p \beta_j^2\right] \right\}
+\end{aligned}`
+$$
+
+
+] 
+
+
+--
+
+
+.pull-right[
+
+
+
+![](https://miro.medium.com/max/1400/1*nrWncnoJ4V_BkzEf1pd4MA.png)
+
+* From Zou, H., &amp; Hastie, T. (2005). Regularization and variable selection via the elastic net.
+
+]
+
+---
+
+## Resources
+
+* I learned `xaringan` (and borrowed heavily for this presentation) from [Alison Hill's online materials](https://alison.rbind.io/) 
+
+--
+
+* [Yihui Xie's (the package developer) introduction](https://slides.yihui.org/xaringan/#1) to `xaringan`
+
+
+--
+
+* `xaringanthemer`: Great package for easily changing the theme without needing to learn CSS.
+
+
+---
+
+class: center, middle
+background-image: url(img/jelleke-vanooteghem-gc3sGgo3q1I-unsplash.jpg)
+background-size: cover
+
+
+# .white[Questions?]
+
+--
+
+## .white[Shift to Coding Style]
+
+---
+
+## Write Readable Code
+
+* It is important to write readable code.
+    + Follow a specific convention.
+    + Use spaces liberally.  
+    + Avoid . in object names.
+    
+* Go through the Tidyverse [Style Guide](https://style.tidyverse.org/).
+
+* A similar style guide: [Google's Style Guide](https://google.github.io/styleguide/Rguide.xml).
+
+* As a group, decide on a style convention.  We don't want to see three or four different conventions for a given project.
+
+---
+
+
+## Write Readable Code
+
+&gt; "Use common sense and BE CONSISTENT.
+
+
+&gt; If you are editing code, take a few minutes to look at the code around you and determine its style. If others use spaces around their if clauses, you should, too. If their comments have little boxes of stars around them, make your comments have little boxes of stars around them, too.
+
+
+&gt; The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. 
+
+
+&gt; We present global style rules here so people know the vocabulary. But local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity will throw readers out of their rhythm when they go to read it. Try to avoid this." --Google Style Guide
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -9,5 +9,8 @@ navbar:
       menu: 
         - text: "GitHub"
           icon: fa-file
-          href: slides-github.html      
+          href: slides-github.html
+        - text: "xaringan + Style"
+          icon: fa-file
+          href: slides-xaringan-style.html        
 output_dir: docs
