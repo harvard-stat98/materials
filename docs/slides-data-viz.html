@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Data Viz</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Kelly McConville" />
+    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+background-image: url("img/cb_qual2.png")
+background-position: left
+background-size: 50%
+class: middle, center, inverse
+
+
+.pull-right[
+
+
+
+# .white[Communicating with Data Visualizations]
+
+&lt;br&gt;
+
+&lt;br&gt;
+
+### .white[Kelly McConville]
+
+#### .babyblue[Stat 98 | Week 10 | Spring 2022] 
+
+]
+
+---
+
+# Goals for Today
+
+* Considerations when communicating with graphs
+
+* This won't be a `ggplot2` tutorial! 
+
+
+---
+
+class: inverse, middle, center
+
+
+## What do you consider when creating a graph?
+
+
+---
+
+
+### Considerations: [Proportional Ink](https://www.businessinsider.com/the-top-10-most-read-books-in-the-world-infographic-2012-12)
+
+.pull-left[
+
+**Principle of proportional ink:** The size of shaded areas need to be proportional to the data values they represent.
+
+]
+
+.pull-right[
+
+&lt;img src="img/books.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+] 
+
+--
+
+* Bars on a linear scale should start at 0.
+
+
+---
+
+### Considerations: [Proportional Ink](https://www.nytimes.com/2020/10/08/learning/whats-going-on-in-this-graph-consumer-spending-during-the-pandemic.html)
+
+
+
+.pull-left[
+
+
+**Principle of proportional ink:** The size of shaded areas need to be proportional to the data values they represent.
+
+]
+
+.pull-right[
+
+
+&lt;img src="img/spending.png" width="95%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+
+]
+
+* Bars on a linear scale should start at 0.
+
+---
+
+### Considerations: [Supporting Text](https://fivethirtyeight.com/features/what-ruth-bader-ginsburgs-death-could-mean-for-2020-and-the-supreme-court/)
+
+.pull-left[ 
+
+Consider including:
+
+* Title (or Figure Caption)
+* Subtitle
+* Axis labels (with units)
+
+
+] 
+
+.pull-right[ 
+
+* Legends/helpers (with units)
+* Maker
+* Data Source
+* Key points
+
+]
+
+&lt;img src="img/rbg.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Considerations: [Context, Context, Context!](https://www.nytimes.com/2020/01/23/learning/whats-going-on-in-this-graph-jan-29-2020.html)
+
+&lt;img src="img/sport_injuries.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Considerations: [Simplifying by Faceting](https://fivethirtyeight.com/features/ted-cruzs-general-election-strategy-is-wishful-thinking/) 
+
+* Great way to add another variable without over-complicating your graphic.
+
+&lt;img src="img/vote_more.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Considerations: [Color Palettes](https://colorbrewer2.org)
+
+.left-column[
+
+**Sequential**: Ordered data with one direction
+
+]
+
+.right-column[
+
+&lt;img src="img/cb_seq.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### Considerations: [Color Palettes](https://colorbrewer2.org)
+
+.left-column[
+
+**Diverging**: Ordered data with two directions
+
+]
+
+.right-column[
+
+&lt;img src="img/cb_div.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### Considerations: [Color Palettes](https://colorbrewer2.org)
+
+.left-column[
+
+**Qualitative**: No order to the data
+
+]
+
+.right-column[
+
+&lt;img src="img/cb_qual.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### Considerations: Color Palettes
+
+.left-column[
+
+Which type(s)?
+
+]
+
+
+.right-column[
+
+&lt;img src="img/climate_change.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+### Common R Color Palettes
+
+
+.left-column[
+
+* Easy to see differences?
+* Perceptually uniform?
+* Robust to colorblindness?
+* Pretty?
+
+]
+
+.right-column[
+
+
+&lt;img src="img/color_palettes.png" width="70%" style="display: block; margin: auto;" /&gt;
+
+]
+
+
+
+---
+
+### Color Blindness: Red-Blind
+
+&lt;img src="img/red_blind.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+### Color Blindness: Green-Blind
+
+&lt;img src="img/green_blind.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+
+
+### Considerations: [Aspect Ratio](http://socviz.co/lookatdata.html)
+
+* Aspect ratio affects our perception of the rate of change
+
+&lt;img src="img/aspect_ratio.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+### Considerations: [Make Important Comparisons Easy](https://serialmentor.com/dataviz/visualizing-proportions.html)
+
+* Which graph makes it easy to conclude that the ruling coalition (FDP + SPD) have a majority?
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/bundestag.png" alt="Wilke (2019)" width="70%" /&gt;
+&lt;p class="caption"&gt;Wilke (2019)&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+    
+### Considerations: [Make Important Comparisons Easy](https://serialmentor.com/dataviz/visualizing-proportions.html)
+
+
+* Which graph makes it easy to see how a company's market share changes over time? (Warning: Fake data.)
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/trend.png" alt="Wilke (2019)" width="80%" /&gt;
+&lt;p class="caption"&gt;Wilke (2019)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+
+### Considerations: Font Size
+
+.pull-left[
+
+Don't just assume the defaults are best!
+
+
+```r
+library(palmerpenguins)
+library(ggplot2)
+ggplot(data = penguins, 
+       mapping = aes(x = flipper_length_mm,
+                     y = bill_length_mm,
+                     color = island)) +
+  geom_point()
+```
+
+]
+
+.pull-right[
+
+&lt;img src="slides-data-viz_files/figure-html/plot-1.png" width="672" /&gt;
+
+]
+
+
+---
+
+
+### Considerations: Font Size
+
+.pull-left[
+
+Don't just assume the defaults are best!
+
+
+```r
+library(palmerpenguins)
+library(ggplot2)
+theme_update(text = element_text(size = 20))
+ggplot(data = penguins, 
+       mapping = aes(x = flipper_length_mm,
+                     y = bill_length_mm,
+                     color = island)) +
+  geom_point()
+```
+
+]
+
+.pull-right[
+
+&lt;img src="slides-data-viz_files/figure-html/plot2-1.png" width="672" /&gt;
+
+]
+
+---
+
+## So Many Choices
+
+#### Example: ["One Dataset, Visualized 25 Ways"](https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/#jp-carousel-47350)
+
+
+* Which of these graphs are **more** effective?
+* Which of these graphs are **less** effective?
+
+
+---
+
+class: inverse, middle, center
+
+## Final Thought
+
+--
+
+### Figure out your story.
+
+--
+
+### Make it **easy** for your viewers to identify the story.
+
+
+---
+
+## Some of My Favorite Data Viz Resources
+
+
+* [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/) by Claus Wilke
+* [Data Visualization: A practical introduction](https://socviz.co/index.html#preface) by Kieran Healy
+
+&lt;!-- mix of math 241 slides from day 2 and intro to mod stat + deb nolan's book --&gt;
+
+
+&lt;!-- https://reed-statistics.github.io/math241s21/slidesWk1Th.html#42 --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"navigation": {
+"scroll": false
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

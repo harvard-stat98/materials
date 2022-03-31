@@ -12,5 +12,8 @@ navbar:
           href: slides-github.html
         - text: "xaringan + Style"
           icon: fa-file
-          href: slides-xaringan-style.html        
+          href: slides-xaringan-style.html
+        - text: "Data Viz"
+          icon: fa-file
+          href: slides-data-viz.html           
 output_dir: docs
